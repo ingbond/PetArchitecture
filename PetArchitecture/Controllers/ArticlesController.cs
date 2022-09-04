@@ -1,6 +1,6 @@
-﻿using Application.Article.Queries;
+﻿using Application.ArticleHandlers.Commands;
+using Application.ArticleHandlers.Queries;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers
@@ -20,6 +20,12 @@ namespace Presentation.Controllers
         public async Task<ActionResult<IEnumerable<ArticleDto>>> Get()
         {
             return await _mediator.Send(new GetArticlesQuery());
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<Guid>> Insert(CreateArticleCommand command)
+        {
+            return await _mediator.Send(command);
         }
     }
 }

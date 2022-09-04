@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities
 {
-    internal class ArticleImages
+    public class ArticleImage
     {
         public Guid Id { get; set; }
         public Guid ArticleId { get; set; }
         public string Bin { get; set; } = string.Empty;
+
+        [ForeignKey("ArticleId")]
+        public virtual Article? Article { get; set; }
     }
 }
