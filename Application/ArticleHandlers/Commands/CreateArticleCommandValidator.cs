@@ -7,7 +7,7 @@ public class CreateArticleCommandValidator : AbstractValidator<CreateArticleComm
     public CreateArticleCommandValidator()
     {
         RuleFor(v => v.Title)
-            .MaximumLength(200)
+            .MaximumLength(20)
             .NotEmpty();
     }
 }
